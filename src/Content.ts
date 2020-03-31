@@ -41,6 +41,7 @@ export default class Content {
         // esik = false;
         // res.write(esik.toString() + "\n");
         // res.write(`${esik}\n`);
+        //freg
 
         res.write("Téglalap területe és kerülete:\n");
         res.write("a= ");
