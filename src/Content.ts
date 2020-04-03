@@ -74,6 +74,11 @@ export default class Content {
             x = 0;
         }
         res.write(`<input type='number' name='inputx' value=${x} style='width:5em;' onChange='this.form.submit();'>\n`);
+        if (x % 2 == 0) {
+            res.write("A szám páros");
+        } else {
+            res.write("A szám páratlan");
+        }
         //Az algoritmusokban a változók a megadott típusú értékek (adatok) tárolására használt memóriatartományok elnevezései.
         // <---- Fejezd be a kódolást
 
