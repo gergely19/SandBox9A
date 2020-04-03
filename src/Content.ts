@@ -91,16 +91,16 @@ export default class Content {
             case 1:
                 res.write("Elégtelen");
                 break;
-            case 1:
+            case 2:
                 res.write("Elégséges");
                 break;
-            case 1:
+            case 3:
                 res.write("Közepes");
                 break;
-            case 1:
+            case 4:
                 res.write("Jó");
                 break;
-            case 1:
+            case 5:
                 res.write("Jeles");
                 break;
 
