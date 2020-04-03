@@ -63,6 +63,8 @@ export default class Content {
         const kerület: number = 2 * (oldalA * oldalB);
         res.write(`terület = ${terület}\n`);
         res.write(`kerület = ${kerület}\n`);
+        res.write("alma\n");
+        //console.log(terület*1000);
         res.write("\n\n");
 
         //Az algoritmusokban a változók a megadott típusú értékek (adatok) tárolására használt memóriatartományok elnevezései.
