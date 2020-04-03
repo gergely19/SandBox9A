@@ -89,23 +89,22 @@ export default class Content {
         res.write(`<input type='text' name='jegy' value=${jegy} style='width:5em;' onChange='this.form.submit();'>\n`);
         switch (jegy) {
             case 1:
-                res.write("Elégtelen");
+                res.write("Elégtelen\n");
                 break;
             case 2:
-                res.write("Elégséges");
+                res.write("Elégséges\n");
                 break;
             case 3:
-                res.write("Közepes");
+                res.write("Közepes\n");
                 break;
             case 4:
-                res.write("Jó");
+                res.write("Jó\n");
                 break;
             case 5:
-                res.write("Jeles");
+                res.write("Jeles\n");
                 break;
-
             default:
-                res.write("Ez nem osztályzat");
+                res.write("Ez nem osztályzat\n");
                 break;
         }
         //Az algoritmusokban a változók a megadott típusú értékek (adatok) tárolására használt memóriatartományok elnevezései.
