@@ -75,9 +75,38 @@ export default class Content {
         }
         res.write(`<input type='number' name='inputx' value=${x} style='width:5em;' onChange='this.form.submit();'>\n`);
         if (x % 2 == 0) {
-            res.write("A szám páros");
+            res.write("A szám páros\n\n\n");
         } else {
-            res.write("A szám páratlan");
+            res.write("A szám páratlan\n\n\n");
+        }
+
+        res.write("KRÉTA\n");
+        res.write("x= ");
+        let jegy: number = parseInt(params.jegy as string);
+        if (isNaN(jegy)) {
+            jegy = 5;
+        }
+        res.write(`<input type='text' name='jegy' value=${jegy} style='width:5em;' onChange='this.form.submit();'>\n`);
+        switch (jegy) {
+            case 1:
+                res.write("Elégtelen");
+                break;
+            case 1:
+                res.write("Elégséges");
+                break;
+            case 1:
+                res.write("Közepes");
+                break;
+            case 1:
+                res.write("Jó");
+                break;
+            case 1:
+                res.write("Jeles");
+                break;
+
+            default:
+                res.write("Ez nem osztályzat");
+                break;
         }
         //Az algoritmusokban a változók a megadott típusú értékek (adatok) tárolására használt memóriatartományok elnevezései.
         // <---- Fejezd be a kódolást
