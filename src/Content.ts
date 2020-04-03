@@ -67,6 +67,13 @@ export default class Content {
         //console.log(terület*1000);
         res.write("\n\n");
 
+        res.write("Páros-páratlan meghatározó\n");
+        res.write("x= ");
+        let x: number = parseInt(params.inputx as string);
+        if (isNaN(x)) {
+            x = 0;
+        }
+        res.write(`<input type='number' name='inputx' value=${x} style='width:5em;' onChange='this.form.submit();'>\n`);
         //Az algoritmusokban a változók a megadott típusú értékek (adatok) tárolására használt memóriatartományok elnevezései.
         // <---- Fejezd be a kódolást
 
