@@ -115,36 +115,37 @@ export default class Content {
             a = 1;
         }
         res.write(`<input type='text' name='a' value=${a} style='width:5em;' onChange='this.form.submit();'>\n`);
-
+        res.write("b = ");
         let b: number = parseInt(params.b as string);
         if (isNaN(b)) {
             b = 1;
         }
-        res.write(`<input type='text' name='a' value=${b} style='width:5em;' onChange='this.form.submit();'>\n`);
+        res.write(`<input type='text' name='b' value=${b} style='width:5em;' onChange='this.form.submit();'>\n`);
+        res.write("c = ");
         let c: number = parseInt(params.c as string);
         if (isNaN(c)) {
             c = 1;
         }
-        res.write(`<input type='text' name='a' value=${c} style='width:5em;' onChange='this.form.submit();'>\n`);
+        res.write(`<input type='text' name='c' value=${c} style='width:5em;' onChange='this.form.submit();'>\n`);
         if (a != 0) {
             if (Math.pow(b, 2) >= 4 * a * c) {
                 if (Math.pow(b, 2) > 4 * a * c) {
                     res.write("Két gyök!");
                     const x1: number = -b + Math.sqrt(Math.pow(b, 2) - 4 * a * c) / (2 * a);
                     const x2: number = -b - Math.sqrt(Math.pow(b, 2) - 4 * a * c) / (2 * a);
-                    res.write(`x1 = ${x1}`);
-                    res.write(`x2 = ${x2}`);
+                    res.write(`\nx1 = ${x1}\n`);
+                    res.write(`x2 = ${x2}\n`);
                 } else {
                     res.write("Egy gyök!");
                     const x: number = -b / (2 * a);
-                    res.write("x = {0}", x);
+                    res.write(`x = ${x}\n`);
                 }
             } else res.write("Nincs valós gyök!");
         } else {
             res.write("Nem másodfokú!");
             if (b != 0) {
                 const x: number = -c / b;
-                res.write("x = {0}", x);
+                res.write(`x = ${x}\n`);
             } else {
                 if (c != 0) res.write("Ellentmondás !");
                 else res.write("Azonosság !");
