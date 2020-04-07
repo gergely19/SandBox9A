@@ -53,7 +53,7 @@ export default class Content {
 
         res.write("Téglalap területe és kerülete:\n");
         res.write("b= ");
-        let oldalB: number = parseInt(params.inputa as string);
+        let oldalB: number = parseInt(params.inputb as string);
         if (isNaN(oldalB)) {
             oldalB = 30;
         }
