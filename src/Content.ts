@@ -107,14 +107,25 @@ export default class Content {
                 res.write("Ez nem osztályzat\n");
                 break;
         }
-        res.write("Másodfokú egyenlet gyökei");
-        res.write("Kérem az együtthatókat !");
+        res.write("\nMásodfokú egyenlet gyökei\n");
+        res.write("Kérem az együtthatókat!\n");
         res.write("a = ");
-        const a: number = double.Parse(Console.ReadLine());
-        res.write("b = ");
-        const b: number = double.Parse(Console.ReadLine());
-        res.write("c = ");
-        const c: number = double.Parse(Console.ReadLine());
+        let a: number = parseInt(params.a as string);
+        if (isNaN(a)) {
+            a = 1;
+        }
+        res.write(`<input type='text' name='a' value=${a} style='width:5em;' onChange='this.form.submit();'>\n`);
+
+        let b: number = parseInt(params.b as string);
+        if (isNaN(b)) {
+            b = 1;
+        }
+        res.write(`<input type='text' name='a' value=${b} style='width:5em;' onChange='this.form.submit();'>\n`);
+        let c: number = parseInt(params.c as string);
+        if (isNaN(c)) {
+            c = 1;
+        }
+        res.write(`<input type='text' name='a' value=${c} style='width:5em;' onChange='this.form.submit();'>\n`);
         if (a != 0) {
             if (Math.pow(b, 2) >= 4 * a * c) {
                 if (Math.pow(b, 2) > 4 * a * c) {
@@ -139,7 +150,6 @@ export default class Content {
                 else res.write("Azonosság !");
             }
         }
-        res.ReadLine();
         //Az algoritmusokban a változók a megadott típusú értékek (adatok) tárolására használt memóriatartományok elnevezései.
         // <---- Fejezd be a kódolást
 
