@@ -169,7 +169,7 @@ export default class Content {
         x2 = 4;
         x2--;
         const osszeg: number = osszead(x1, x2);
-        res.write(`${x1}+${x2}=${osszeg}`);
+        res.write(`${x1}+${x2}=${osszeg}\n`);
 
         res.write("\nSzám faktoriáisa\n");
         res.write("Kérem a számom: ");
