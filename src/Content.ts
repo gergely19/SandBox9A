@@ -170,6 +170,15 @@ export default class Content {
         x2--;
         const osszeg: number = osszead(x1, x2);
         res.write(`${x1}+${x2}=${osszeg}`);
+
+        res.write("\nSzám faktoriáisa\n");
+        res.write("Kérem a számom: ");
+        let n: number = parseInt(params.n as string);
+        if (isNaN(n)) {
+            n = 5;
+        }
+        res.write(`<input type='text' name='n' value=${n} style='width:5em;' onChange='this.form.submit();'>\n`);
+        res.write(`${n}!=${faktorialis(n)}`);
         //Az algoritmusokban a változók a megadott típusú értékek (adatok) tárolására használt memóriatartományok elnevezései.
         // <---- Fejezd be a kódolást
 
