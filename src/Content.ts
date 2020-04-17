@@ -2,6 +2,9 @@
 import http from "http";
 import url from "url";
 
+function osszead(a: number, b: number): number {
+    return a + b;
+}
 export default class Content {
     public content(req: http.IncomingMessage, res: http.ServerResponse): void {
         // favicon.ico kérés kiszolgálása:
@@ -151,6 +154,15 @@ export default class Content {
                 else res.write("Azonosság !");
             }
         }
+        res.write("függvény hívása\n");
+        let x1: number;
+        x1 = 4;
+        x1++;
+        let x2: number;
+        x2 = 4;
+        x2--;
+        const osszeg: number = osszead(x1, x2);
+        res.write(`${x1}+${x2}=${osszeg}`);
         //Az algoritmusokban a változók a megadott típusú értékek (adatok) tárolására használt memóriatartományok elnevezései.
         // <---- Fejezd be a kódolást
 
