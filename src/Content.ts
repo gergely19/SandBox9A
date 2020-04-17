@@ -5,6 +5,13 @@ import url from "url";
 function osszead(a: number, b: number): number {
     return a + b;
 }
+function faktorialis(n: number): number {
+    let fakt: number = 1;
+    for (let i: number = 2; i <= n; i++) {
+        fakt = fakt * i;
+    }
+    return fakt;
+}
 export default class Content {
     public content(req: http.IncomingMessage, res: http.ServerResponse): void {
         // favicon.ico kérés kiszolgálása:
@@ -154,7 +161,7 @@ export default class Content {
                 else res.write("Azonosság !");
             }
         }
-        res.write("függvény hívása\n");
+        res.write("\nfüggvény hívása\n");
         let x1: number;
         x1 = 4;
         x1++;
