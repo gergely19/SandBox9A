@@ -180,7 +180,7 @@ export default class Content {
         res.write(`<input type='text' name='n' value=${n} style='width:5em;' onChange='this.form.submit();'>\n`);
         res.write(`${n}!=${faktorialis(n)}\n`);
 
-        res.write("Tömbök:\n");
+        res.write("\nTömbök:\n");
         const nevek: string[] = ["Anita", "Gabrella", "Sándor", "Gergő"];
         for (let i: number = 0; i < nevek.length; i++) {
             res.write(nevek[i] + "\n");
