@@ -178,7 +178,21 @@ export default class Content {
             n = 5;
         }
         res.write(`<input type='text' name='n' value=${n} style='width:5em;' onChange='this.form.submit();'>\n`);
-        res.write(`${n}!=${faktorialis(n)}`);
+        res.write(`${n}!=${faktorialis(n)}\n`);
+
+        res.write("Tömbök:\n");
+        const nevek: string[] = ["Anita", "Gabrella", "Sándor", "Gergő"];
+        for (let i: number = 0; i < nevek.length; i++) {
+            res.write(nevek[i] + "\n");
+        }
+
+        res.write("\nSzám faktoriáisa\n");
+        res.write("Kérem a számom: ");
+        let szam1: number = parseInt(params.szam1 as string);
+        if (isNaN(szam1)) {
+            szam1 = 5;
+        }
+        res.write(`<input type='text' name='szam1' value=${szam1} style='width:5em;' onChange='this.form.submit();'>\n`);
         //Az algoritmusokban a változók a megadott típusú értékek (adatok) tárolására használt memóriatartományok elnevezései.
         // <---- Fejezd be a kódolást
 
