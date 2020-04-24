@@ -1,4 +1,4 @@
-﻿import fs, { renameSync } from "fs";
+﻿import fs from "fs";
 import http from "http";
 import url from "url";
 
