@@ -224,6 +224,24 @@ export default class Content {
             h = m; //új maradék
         } while (m != 0);
         res.write(`A két szám LNKO-ja Euklidesz-i módszerrel: ${g}`);
+        res.write("Számok vektor bejárása\n");
+        const számok: number[] = [23, 67, 33, 77, 88, 73, 21, 20];
+        for (let i = 0; i < számok.length; i++) {
+            res.write(`${számok[i]}, `);
+        }
+        res.write("\n");
+        res.write(számok.toString() + "\n");
+
+        for (const i of számok) {
+            res.write(`${i}, `);
+        }
+        res.write("\n");
+
+        for (const i in számok) {
+            //res.write(`${i}, `);
+            res.write(`${számok[i]}, `);
+        }
+        res.write("\n");
         //Az algoritmusokban a változók a megadott típusú értékek (adatok) tárolására használt memóriatartományok elnevezései.
         // <---- Fejezd be a kódolást
 
