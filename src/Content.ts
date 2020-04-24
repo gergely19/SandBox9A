@@ -1,4 +1,4 @@
-﻿import fs from "fs";
+﻿import fs, { renameSync } from "fs";
 import http from "http";
 import url from "url";
 
@@ -238,11 +238,24 @@ export default class Content {
         res.write("\n");
 
         for (const i in számok) {
+            const utolsóIndex: number = számok.length - 1;
+            if (parseInt(i) != utolsóIndex) {
+                res.write(`${számok[i]}, `);
+            } else {
+                res.write(`${számok[i]}`);
+            }
             //res.write(`${i}, `);
-            res.write(`${számok[i]}, `);
         }
         res.write("\n");
-        //Az algoritmusokban a változók a megadott típusú értékek (adatok) tárolására használt memóriatartományok elnevezései.
+        res.write(számok.join(". "));
+
+        let maxi = 0;
+        for (let i = 1; i < számok.length; i++) {
+            if (számok[i] > számok[maxi]) {
+                maxi = i;
+            }
+        }
+        res.write(`\n\nA legnagyobb elem értéke: ${számok[maxi]}, indexe: ${maxi}`);
         // <---- Fejezd be a kódolást
 
         res.write("</pre></form></body></html>");
