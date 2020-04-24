@@ -262,7 +262,7 @@ export default class Content {
                 min = számok[i];
             }
         }
-        res.write(`\nA legkisebb elem értéke: ${számok[min]}, indexe: ${min}`);
+        res.write(`\nA legkisebb elem értéke: ${min}`);
 
         let miniPáratlan: number = -1;
         for (let i = 0; i < számok.length; i++) {
