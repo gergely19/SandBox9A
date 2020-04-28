@@ -12,6 +12,7 @@ function faktorialis(n: number): number {
     }
     return fakt;
 }
+
 export default class Content {
     public content(req: http.IncomingMessage, res: http.ServerResponse): void {
         // favicon.ico kérés kiszolgálása:
@@ -35,25 +36,22 @@ export default class Content {
 
         // Kezd a kódolást innen -->
 
-        // res.write("Hello Jedlik, hello 9.A");
-        // res.write("<h2 style='color:red;'>TipeScript</h2>");
-        // res.write("próba\n");
-        // res.write("alma\n");
-
-        // let x = 12; //változó definíció
+// Az  algoritmusokban  a  változók  a  megadott  típusú
+        // értékek  (adatok)tárolására  használt memóriatartományok elnevezései.
+        // let x: number = 12; // változó definíció: let változóAzon = kezdőérték
         // x = 20;
+        // res.write(`Az x változó érték: ${x}\n`);
         // res.write(`${x}\n`);
         // res.write(x.toString() + "\n");
         // const szöveg = "alma";
+        // // szöveg = "körte";
         // res.write(szöveg + "\n");
         // let esik: boolean;
         // esik = true;
         // esik = false;
-        // res.write(esik.toString() + "\n");
-        // res.write(`${esik}\n`);
-        //freg
+        // res.write(`${!esik}\n`);
 
-        res.write("Téglalap területe és kerülete:\n");
+        res.write("Téglalp területe és kerülete\n");
         res.write("a= ");
         let oldalA: number = parseInt(params.inputa as string);
         if (isNaN(oldalA)) {
@@ -61,7 +59,6 @@ export default class Content {
         }
         res.write(`<input type='text' name='inputa' value=${oldalA} style='width:5em;' onChange='this.form.submit();'>\n`);
 
-        res.write("Téglalap területe és kerülete:\n");
         res.write("b= ");
         let oldalB: number = parseInt(params.inputb as string);
         if (isNaN(oldalB)) {
@@ -70,11 +67,9 @@ export default class Content {
         res.write(`<input type='text' name='inputb' value=${oldalB} style='width:5em;' onChange='this.form.submit();'>\n`);
 
         const terület: number = oldalA * oldalB;
-        const kerület: number = 2 * (oldalA * oldalB);
-        res.write(`terület = ${terület}\n`);
-        res.write(`kerület = ${kerület}\n`);
-        res.write("alma\n");
-        //console.log(terület*1000);
+        const kerület: number = 2 * (oldalA + oldalB);
+        res.write(`Terület = ${terület}\n`);
+        res.write(`Kerület = ${kerület}\n`);
         res.write("\n\n");
 
         res.write("Páros-páratlan meghatározó\n");
@@ -85,13 +80,13 @@ export default class Content {
         }
         res.write(`<input type='number' name='inputx' value=${x} style='width:5em;' onChange='this.form.submit();'>\n`);
         if (x % 2 == 0) {
-            res.write("A szám páros\n\n\n");
+            res.write("A szám páros!\n\n\n");
         } else {
-            res.write("A szám páratlan\n\n\n");
+            res.write("A szám páratlan!\n\n");
         }
 
         res.write("KRÉTA\n");
-        res.write("x= ");
+        res.write("Kérem az osztályzatot: ");
         let jegy: number = parseInt(params.jegy as string);
         if (isNaN(jegy)) {
             jegy = 5;
@@ -114,159 +109,154 @@ export default class Content {
                 res.write("Jeles\n");
                 break;
             default:
-                res.write("Ez nem osztályzat\n");
+                res.write("Ez nem osztályzat!\n");
                 break;
         }
+
         res.write("\nMásodfokú egyenlet gyökei\n");
         res.write("Kérem az együtthatókat!\n");
-        res.write("a = ");
+
+        res.write("a= ");
         let a: number = parseInt(params.a as string);
         if (isNaN(a)) {
             a = 1;
         }
         res.write(`<input type='text' name='a' value=${a} style='width:5em;' onChange='this.form.submit();'>\n`);
-        res.write("b = ");
+
+        res.write("b= ");
         let b: number = parseInt(params.b as string);
         if (isNaN(b)) {
-            b = 1;
+            b = 2;
         }
         res.write(`<input type='text' name='b' value=${b} style='width:5em;' onChange='this.form.submit();'>\n`);
-        res.write("c = ");
+
+        res.write("c= ");
         let c: number = parseInt(params.c as string);
         if (isNaN(c)) {
             c = 1;
         }
         res.write(`<input type='text' name='c' value=${c} style='width:5em;' onChange='this.form.submit();'>\n`);
+
         if (a != 0) {
             if (Math.pow(b, 2) >= 4 * a * c) {
                 if (Math.pow(b, 2) > 4 * a * c) {
-                    res.write("Két gyök!");
+                    res.write("Két gyök!\n");
                     const x1: number = -b + Math.sqrt(Math.pow(b, 2) - 4 * a * c) / (2 * a);
                     const x2: number = -b - Math.sqrt(Math.pow(b, 2) - 4 * a * c) / (2 * a);
-                    res.write(`\nx1 = ${x1}\n`);
+                    res.write(`x1 = ${x1}\n`);
                     res.write(`x2 = ${x2}\n`);
                 } else {
-                    res.write("Egy gyök!");
+                    res.write("Egy gyök!\n");
                     const x: number = -b / (2 * a);
                     res.write(`x = ${x}\n`);
                 }
-            } else res.write("Nincs valós gyök!");
+            } else res.write("Nincs valós gyök!\n");
         } else {
-            res.write("Nem másodfokú!");
+            res.write("Nem másodfokú!\n");
             if (b != 0) {
                 const x: number = -c / b;
-                res.write(`x = ${x}\n`);
+                res.write(`x = ${x}`);
             } else {
-                if (c != 0) res.write("Ellentmondás !");
-                else res.write("Azonosság !");
+                if (c != 0) res.write("Ellentmondás !\n");
+                else res.write("Azonosság !\n");
             }
         }
-        res.write("\nfüggvény hívása\n");
+
+        res.write("Függvény hívása\n");
         let x1: number;
         x1 = 4;
-        x1++;
+        x1++; // vagy x1 = x1 + 1;
         let x2: number;
         x2 = 4;
-        x2--;
+        x2--; // vagy x2 = x2 - 1;
         const osszeg: number = osszead(x1, x2);
         res.write(`${x1}+${x2}=${osszeg}\n`);
 
-        res.write("\nSzám faktoriáisa\n");
-        res.write("Kérem a számom: ");
+        res.write("\nSzám faktoriálisa\n");
+        res.write("Kérem a számot: ");
         let n: number = parseInt(params.n as string);
         if (isNaN(n)) {
             n = 5;
         }
         res.write(`<input type='text' name='n' value=${n} style='width:5em;' onChange='this.form.submit();'>\n`);
-        res.write(`${n}!=${faktorialis(n)}\n`);
+        res.write(`${n}!=${faktrialis(n)}\n`);
 
-        res.write("\nTömbök:\n");
-        const nevek: string[] = ["Anita", "Gabrella", "Sándor", "Gergő"];
-        for (let i: number = 0; i < nevek.length; i++) {
+        // Tömbök - összetett adatszekezet, több adat tárolására alkalmas
+        res.write("\nTömbök\n");
+        // tömb definíció (típus, azonosító, kezdőértékek)
+        const nevek: string[] = ["Andi", "Anna", "Bence", "Laci"];
+        res.write(nevek[0] + "\n");
+        res.write(nevek[1] + "\n");
+        res.write(nevek[2] + "\n");
+        res.write(nevek[3] + "\n");
+        // res.write(nevek[4] + "\n"); // undefined
+
+        res.write("Visszafelé:\n");
+        for (let i: number = nevek.length - 1; i >= 0; i--) {
             res.write(nevek[i] + "\n");
         }
 
-        res.write("\nLegnagyobb közös osztó (LNKO) meghatározása:\n");
-        res.write("k= ");
-        let k: number = parseInt(params.k as string);
-        if (isNaN(k)) {
-            k = 20;
-        }
-        res.write(`<input type='text' name='k' value=${k} style='width:5em;' onChange='this.form.submit();'>\n`);
-        res.write("l= ");
-        let l: number = parseInt(params.l as string);
-        if (isNaN(l)) {
-            l = 60;
-        }
-        res.write(`<input type='text' name='l' value=${l} style='width:5em;' onChange='this.form.submit();'>\n`);
-        while (k != l) {
-            if (k > l) k = k - l;
-            else l = l - k;
-        }
-        res.write(`A két szám LNKO-ja: ${k}`);
-        res.write("\nLegnagyobb közös osztó (LNKO) meghatározása Euklidesz-i módszerrel:\n");
-        res.write("g= ");
-        let g: number = parseInt(params.g as string);
-        if (isNaN(g)) {
-            g = 60;
-        }
-        res.write(`<input type='text' name='g' value=${g} style='width:5em;' onChange='this.form.submit();'>\n`);
-        res.write("h= ");
-        let h: number = parseInt(params.h as string);
-        if (isNaN(h)) {
-            h = 20;
-        }
-        res.write(`<input type='text' name='h' value=${h} style='width:5em;' onChange='this.form.submit();'>\n`);
-        let m: number = parseInt(params.m as string);
-        do {
-            m = g % h; //maradékos osztás
-            g = h; //előző maradék
-            h = m; //új maradék
-        } while (m != 0);
-        res.write(`A két szám LNKO-ja Euklidesz-i módszerrel: ${g}`);
+        // Bejárás tétele
         res.write("Számok vektor bejárása\n");
         const számok: number[] = [23, 67, 33, 77, 88, 73, 21, 20];
         for (let i = 0; i < számok.length; i++) {
             res.write(`${számok[i]}, `);
         }
         res.write("\n");
-        res.write(számok.toString() + "\n");
+        res.write(számok + "\n");
 
+        // Bejárás for of ciklissal
+        // c# foreach ciklus megfelelője
+        // A ciklusváltozó (i) felveszi sorba a vektorban lévő számokat
         for (const i of számok) {
-            res.write(`${i}, `);
+            res.write(`${i}; `);
         }
         res.write("\n");
 
+        // for in ciklus ???
+        // a vektor (egy dimenziós tömb) elemeinek indexét vesz fel 0...Array.length-1
+        // C# nyelven ilyen nincsm sim for ciklust használunk helyette
         for (const i in számok) {
+            //res.write(`${i}; `);
             const utolsóIndex: number = számok.length - 1;
+            // azért kell átalakitani számra, mert az "i" sztring típusú
             if (parseInt(i) != utolsóIndex) {
                 res.write(`${számok[i]}, `);
             } else {
                 res.write(`${számok[i]}`);
             }
-            //res.write(`${i}, `);
         }
         res.write("\n");
-        res.write(számok.join(". "));
 
+        // Kiírás a join() függvény használatával
+        res.write(számok.join(". ") + "\n");
+
+        // Szélsőérték keresés algoritmusa
+        // Keressük a legnagyobb elem indexét és értékét
         let maxi = 0;
         for (let i = 1; i < számok.length; i++) {
             if (számok[i] > számok[maxi]) {
                 maxi = i;
             }
         }
-        res.write(`\n\nA legnagyobb elem értéke: ${számok[maxi]}, indexe: ${maxi}`);
+        res.write(`A legnagyobb elem értéke: ${számok[maxi]}, indexe: ${maxi}\n`);
+
+        // Minimumkeresés, minimum index nélkül
         let min: number = számok[0];
         for (let i = 0; i < számok.length; i++) {
             if (számok[i] < min) {
                 min = számok[i];
             }
         }
-        res.write(`\nA legkisebb elem értéke: ${min}`);
+        res.write(`A legkisebb elem értéke: ${min}\n`);
 
+        // Legnagyobb páratlan elem indexe és értéke
+        // Nem jelölhetjük ki az első elemet a legnagyobb páratlan számnak
         let miniPáratlan: number = -1;
         for (let i = 0; i < számok.length; i++) {
-            if (számok[i] % 2 == 1) {
+            // csak a páratlan számokkal foglalkozunk
+            if (számok[i] % 2 === 1) {
+                // Első páratlan szám?
                 if (miniPáratlan == -1) {
                     miniPáratlan = i;
                 } else {
@@ -277,8 +267,12 @@ export default class Content {
             }
         }
         if (miniPáratlan != -1) {
-            res.write(`\nA legkisebb páratlan elem értéke: ${számok[miniPáratlan]}, indexe: ${miniPáratlan}\n`);
+            res.write(`A legkisebb páratlan elem értéke: ${számok[miniPáratlan]}, indexe: ${miniPáratlan}\n`);
         }
+
+        // HF: nyomkövetés, válozóvizsgálat gyakorálsa
+
+        // foreach ciklus:
 
         // <---- Fejezd be a kódolást
 
