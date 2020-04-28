@@ -179,7 +179,7 @@ export default class Content {
             n = 5;
         }
         res.write(`<input type='text' name='n' value=${n} style='width:5em;' onChange='this.form.submit();'>\n`);
-        res.write(`${n}!=${faktrialis(n)}\n`);
+        res.write(`${n}!=${faktorialis(n)}\n`);
 
         // Tömbök - összetett adatszekezet, több adat tárolására alkalmas
         res.write("\nTömbök\n");
