@@ -36,7 +36,7 @@ export default class Content {
 
         // Kezd a kódolást innen -->
 
-// Az  algoritmusokban  a  változók  a  megadott  típusú
+        // Az  algoritmusokban  a  változók  a  megadott  típusú
         // értékek  (adatok)tárolására  használt memóriatartományok elnevezései.
         // let x: number = 12; // változó definíció: let változóAzon = kezdőérték
         // x = 20;
